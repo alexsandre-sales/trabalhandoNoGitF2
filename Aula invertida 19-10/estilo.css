@@ -1,0 +1,16 @@
+* {
+  margin: 0; 
+  padding: 0;
+}
+
+img {
+    width: 100px;
+    background-color: "";
+    position: relative;
+    left: 50px;
+    top: 50px;
+}
+
+img:hover{
+    border: 1px dashed;
+}
