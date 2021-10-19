@@ -4,13 +4,13 @@
 }
 
 img {
-    width: 100px;
-    background-color: "";
-    position: relative;
-    left: 50px;
-    top: 50px;
+  width: 100px;
+  background-color: "";
+  position: absolute;
+  left: 50px;
+  top: 50px;
 }
 
 img:hover{
-    border: 1px dashed;
+  border: 1px dashed;
 }
