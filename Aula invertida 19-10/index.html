@@ -4,9 +4,33 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo.css">
     <title>Dom: onDobleClick/getElementById</title>
 </head>
 <body>
-    
+    <!-- Chamando a imagem, atribuídos: onclick, ondblclick e efeito HOVER no CSS -->
+    <div>
+        <img id="pasta1" src="img/pastaFechada.png" ondblclick="abrePasta()" onclick="selecionaPasta()">
+    </div>
+    <script>
+        imagem = document.getElementById("pasta1")
+        // Função para identificar qual imagem está sendo usada e fazer a troca com DUPLO CLICK
+        function abrePasta(){
+            if (imagem.src == "http://127.0.0.1:5500/Aula%20invertida%2019-10/img/pastaFechada.png"){
+                imagem.src = "http://127.0.0.1:5500/Aula%20invertida%2019-10/img/pastaAberta.png"
+            }else{
+                imagem.src = "http://127.0.0.1:5500/Aula%20invertida%2019-10/img/pastaFechada.png"
+            }
+        }
+        // Função para colorir e descolorir, usando transição, o background da pasta com UM CLICK
+        function selecionaPasta(){
+            if (imagem.style.backgroundColor == ""){
+                imagem.style.transition = "ease all 0.8s"
+                imagem.style.backgroundColor = "rgba(0, 255, 255, 0.4)"
+            }else{
+                imagem.style.backgroundColor = ""
+            }
+        }
+    </script>
 </body>
 </html>
