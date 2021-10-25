@@ -37,7 +37,7 @@ $("input").click((event)=>{
     // console.log("IF digitos:", digitos)
     // console.log("IF memoria:", memoria)
   // Captura dos operadores matemáticos
-  }else if(nome == "op"){
+  }else if(nome == "op"){ // NECESSÁRIO AJUSTE PARA ACUMULO DE OPERAÇÕES
     if(resultado > 0){ // Tratamento da "memória".
       float1 = parseFloat(resultado)
       op = valor
