@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .container {
+        background-color: cornflowerblue;
+        width: 100%;
+      }
+      .container-info {
+        background-color: cornsilk;
+        width: 90%;
+        height: 600px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+      }
+      .container-left {
+        background-color: cyan;
+        width: 50%;
+      }
+      .left-info {
+        width: 80%;
+        margin: 0 auto;
+      }
+      .container-right {
+        background-color: darkcyan;
+        width: 50%;
+      }
+      h2 {
+        text-align: center;
+        font-size: 2rem;
+      }
+      .entValor {
+        width: 80%;
+        margin: 0 auto;
+      }
+      figure {
+        width: 100%;
+        text-align: center;
+      }
+      figure img {
+        width: 50%;
+      }
+      table {
+        width: 80%;
+        margin: 0 auto;
+      }
+
+      .container-cadastro {
+        width: 80%;
+        margin: 0 auto;
+      }
+      .cadastro-nomes {
+        width: 100%;
+      }
+      .cadastro-nomes input {
+        padding: 10px;
+        /* margin-right: 10px; */
+        border-radius: 10px;
+        line-height: 1.5;
+        border: none;
+        outline: none;
+      }
+      #nomePessoa {
+        width: 60%;
+      }
+      #nomeDog {
+        width: 39%;
+      }
+      .cadastro-btn {
+        display: flex;
+        justify-content: flex-end;
+        width: 100%;
+      }
+      button {
+        margin-top: 5px;
+        margin-left: 10px;
+        font-weight: bold;
+        padding: 10px 15px;
+        border-radius: 10px;
+        border: none;
+        cursor: pointer;
+      }
+      button:hover {
+        color: orange;
+        background-color: black;
+      }
+      .conteudo {
+        margin-top: 10px;
+      }
+      table {
+        width: 100%;
+        border: 1px solid saddlebrown;
+      }
+      table th {
+        background-color: #292929;
+        text-align: left;
+        color: orange;
+      }
+      table td {
+        background-color: #949494;
+        color: white;
+      }
+      table td img {
+        width: 24px;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="container">
+      <div class="container-info">
+        <div class="container-left">
+          <div class="left-info">
+            <h2>Sobre o role</h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi a
+              voluptatibus doloremque, voluptas, eligendi accusamus recusandae
+              inventore consectetur consequuntur corporis voluptatem maxime
+              explicabo? Necessitatibus placeat quasi dolorum ea ipsa fugit?
+            </p>
+            <p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius
+              reiciendis officia laudantium error unde quibusdam, tenetur odit
+              iusto repudiandae porro asperiores odio amet quas consequatur
+              voluptate, eos libero sequi et.
+            </p>
+          </div>
+          <section class="container-cadastro">
+            <div class="cadastro-nomes">
+              <input type="text" id="nomePessoa" placeholder="Nome" />
+              <input type="text" id="nomeDog" placeholder="Nome do pet" />
+            </div>
+            <div class="cadastro-btn">
+              <button id="btnSalvar" onclick="servico.salvar()">Salvar</button>
+              <button id="btnCancelar" onclick="servico.cancelar()">
+                Cancelar
+              </button>
+            </div>
+            <div class="conteudo">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Nome</th>
+                    <th>Pet</th>
+                    <th>Alterar</th>
+                  </tr>
+                </thead>
+                <tbody id="tBody"></tbody>
+              </table>
+            </div>
+          </section>
+        </div>
+
+        <div class="container-right">
+          <h2>Calcule seu role</h2>
+          <figure>
+            <img src="img/calc.jpg" alt="" />
+          </figure>
+        </div>
+      </div>
+    </section>
+  </body>
+  <script>
+    class Cadastro {
+      constructor() {
+        this.id = 1;
+        this.arrayCadastro = [];
+        this.testeBtn = 0;
+      }
+
+      salvar() {
+        let servico = this.lerDados();
+
+        if (this.validarCampos(servico)) {
+          if (this.testeBtn == 0) {
+            this.adicionar(servico);
+          } else {
+            this.atualizar(this.testeBtn);
+          }
+          this.listaNomes();
+          this.cancelar();
+        }
+      }
+
+      listaNomes() {
+        let tbody = document.getElementById('tBody');
+        tbody.innerText = '';
+
+        for (let i = 0; i < this.arrayCadastro.length; i++) {
+          let novaLinha = tbody.insertRow();
+
+          let td_nome = novaLinha.insertCell();
+          let td_dog = novaLinha.insertCell();
+          let td_acoes = novaLinha.insertCell();
+
+          td_nome.innerText = this.arrayCadastro[i].nome;
+          td_dog.innerText = this.arrayCadastro[i].dog;
+
+          let imgEdit = document.createElement('img');
+          imgEdit.src = 'img/edit.png';
+          imgEdit.style = 'cursor:pointer';
+          td_acoes.appendChild(imgEdit);
+
+          let imgDelete = document.createElement('img');
+          imgDelete.src = 'img/delete.png';
+          imgDelete.style = 'cursor:pointer';
+          td_acoes.appendChild(imgDelete);
+
+          imgEdit.setAttribute(
+            'onclick',
+            'servico.mostrarDados(' +
+              JSON.stringify(this.arrayCadastro[i]) +
+              ')'
+          );
+
+          imgDelete.setAttribute(
+            'onclick',
+            'servico.deletar(' + this.arrayCadastro[i].id + ')'
+          );
+        }
+      }
+
+      adicionar(servico) {
+        this.arrayCadastro.push(servico);
+        this.id++;
+      }
+
+      cancelar() {
+        document.getElementById('nomePessoa').value = '';
+        document.getElementById('nomeDog').value = '';
+
+        document.getElementById('btnSalvar').innerText = 'Salvar';
+        this.testeBtn = 0;
+      }
+
+      lerDados() {
+        let servico = {};
+        servico.nome = document.querySelector('#nomePessoa').value;
+        servico.dog = document.querySelector('#nomeDog').value;
+        servico.id = this.id;
+
+        return servico;
+      }
+
+      validarCampos(servico) {
+        let msg = '';
+        if (servico.nome == '') {
+          msg += ' - Informe o nome da pessoa \n';
+        }
+        if (servico.dog == '') {
+          msg += ' - Informe o nome do dog \n';
+        }
+        if (msg != '') {
+          alert(msg);
+          return false;
+        }
+        return true;
+      }
+
+      deletar(idProcurado) {
+        if (confirm('Deseja deletar ? ' + idProcurado)) {
+          for (let i = 0; i < this.arrayCadastro.length; i++) {
+            if (this.arrayCadastro[i].id == idProcurado) {
+              this.arrayCadastro.splice(i, 1);
+              tBody.deleteRow(i);
+            }
+          }
+        }
+      }
+
+      mostrarDados(dados) {
+        document.getElementById('nomePessoa').value = dados.nome;
+        document.getElementById('nomeDog').value = dados.dog;
+
+        document.getElementById('btnSalvar').innerHTML = 'Atualizar';
+        this.testeBtn = dados.id;
+      }
+
+      atualizar(id) {
+        for (let i = 0; i < this.arrayCadastro.length; i++) {
+          if (id == this.arrayCadastro[i].id) {
+            this.arrayCadastro[i].nome =
+              document.getElementById('nomePessoa').value;
+            this.arrayCadastro[i].dog =
+              document.getElementById('nomeDog').value;
+          }
+        }
+        this.testeBtn = 0;
+      }
+    }
+    var servico = new Cadastro();
+  </script>
+</html>

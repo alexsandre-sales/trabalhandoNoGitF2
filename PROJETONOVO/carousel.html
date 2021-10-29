@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      #banner-container {
+        width: 300px;
+      }
+      #banner {
+        width: 100%;
+        height: 450px;
+        position: relative;
+        background-size: cover;
+      }
+      #btnLeft {
+        position: absolute;
+        cursor: pointer;
+        left: 0;
+        bottom: 50%;
+      }
+      #btnRight {
+        position: absolute;
+        cursor: pointer;
+        right: 0;
+        bottom: 50%;
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <section id="banner-container">
+      <section id="banner">
+        <span id="btnLeft"><img src="img/L.png" /></span>
+        <span id="btnRight"><img src="img/R.png" /></span>
+      </section>
+    </section>
+
+    <script>
+      let vetorB = ['img/1p.jpg', 'img/2p.jpg', 'img/3p.jpg'];
+
+      let max = vetorB.length - 1;
+      let i = 0;
+
+      // $('#btnLeft').text('<');
+      // $('#btnRight').text('>');
+      $('#banner').css('backgroundImage', 'url(' + vetorB[0] + ')');
+
+      $('#btnLeft').click(function () {
+        trocar(-1);
+      });
+      $('#btnRight').click(function () {
+        trocar(1);
+      });
+
+      function trocar(op) {
+        $('#banner')
+          .css('backgroundImage', 'url(' + vetorB[i] + ')')
+          .fadeOut(500, function () {
+            i += op;
+            if (i > max) {
+              i = 0;
+            } else if (i < 0) {
+              i = max;
+            }
+            $('#banner')
+              .css('backgroundImage', 'url(' + vetorB[i] + ')')
+              .fadeIn(500);
+          });
+      }
+    </script>
+  </body>
+</html>

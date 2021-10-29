@@ -1,0 +1,577 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/*ESTILIZAÇÃO DA NAV*/
+
+nav {
+  width: 100%;
+  height: 10vh;
+  background-color: #f67828;
+  position: fixed;
+  display: flex;
+  justify-content: right;
+  margin-right: 20px;
+  align-items: center;
+  z-index: 1;
+  top: 0;
+}
+
+#img-logo {
+  position: absolute;
+  left: 0;
+  width: 15%;
+  min-width: 150px;
+  margin-left: 20px;
+}
+
+nav ul li a:hover {
+  border-bottom: 3px solid black;
+}
+
+li {
+  margin-left: 30px;
+
+  display: inline-block;
+}
+li a {
+  display: flex;
+  text-decoration: none;
+  margin: 10px 10px;
+  color: black;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-bottom: 3px solid transparent;
+  transition: all 0.25s ease-in-out;
+}
+
+/* ************************botao mobile************* */
+#btnMenu {
+  display: none;
+}
+
+/* .menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 100%;
+  margin: 0 auto;
+  position: fixed;
+  flex-wrap: wrap;
+}
+
+.lista-nav {
+  display: flex;
+  flex-wrap: wrap;
+  
+
+} */
+
+/*********************************************/
+
+.container {
+  width: 90%;
+  background-color: #ffdab9;
+  margin: auto;
+}
+.info-init_img {
+  width: 100%;
+  height: calc(100vh - 50px);
+  background-image: url(../img/background-inicial2.jpg);
+  background-attachment: fixed;
+  position: relative;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  margin-top: 55px;
+}
+.img-txt {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  margin-top: 100px;
+}
+
+.img-txt h1 {
+  font-size: 4rem;
+}
+.img-txt p {
+  font-size: 2rem;
+}
+
+.main-ceo_container {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  background-color: #f8f8ff;
+}
+.cards {
+  margin-top: 50px;
+}
+.visible {
+  display: block;
+}
+.cards-img img {
+  width: 100%;
+}
+.cards h2 {
+  text-align: center;
+  font-size: 1.7rem;
+}
+.cards p {
+  font-size: 1.5rem;
+  margin-bottom: 50px;
+}
+
+.servc-left,
+.servc-right {
+  width: 90%;
+  text-align: justify;
+  margin: 60px auto;
+  font-size: 1.3rem;
+}
+
+.fundadores, .titulo {
+  font-size: 16px;
+  text-align: center;
+}
+
+
+
+/* *****************************calculadora******************* */
+
+.calc-inf,
+.calc-calc {
+  width: 90%;
+  text-align: center;
+  margin: 60px auto;
+  font-size: 1.3rem;
+}
+/* .calc {
+  background-color: #ffa07a;
+  width: 100%;
+  height: 450px;
+} */
+
+.container-calc {
+  width: 250px;
+  background-color: #2e2e2e;
+  border: 1px solid orange;
+  border-radius: 5px;
+  height: 380px;
+  margin: 140px auto;
+}
+
+#display {
+  display: flex;
+  color: aliceblue;
+  flex-direction: column;
+  width: 80%;
+  height: 80px;
+  margin: 4%;
+  padding: 5px;
+  text-align: right;
+}
+
+#memoria {
+  height: 40px;
+  border: 1px solid white;
+  text-align: right;
+}
+
+#entrada-saida {
+  font-size: 25px;
+  height: 40px;
+  border: 1px solid white;
+  text-align: right;
+}
+
+#displayNumBt {
+  display: flex;
+  flex-wrap: wrap;
+  float: left;
+  width: 70%;
+  height: 170px;
+  margin: 0 0 80px 4%;
+  align-items: center;
+  justify-content: center;
+}
+#displayNumBt > input {
+  width: 33%;
+}
+.numBt {
+  float: left;
+  width: 42px;
+  height: 40px;
+  text-align: center;
+  cursor: pointer;
+}
+
+#b0 {
+  width: 84px;
+  height: 40px;
+  text-align: center;
+  padding: 10px;
+  cursor: pointer;
+}
+
+#cientifica {
+  display: none;
+  flex-wrap: wrap;
+  float: left;
+  width: 70%;
+  height: 40px;
+  margin: 0 0 0 4%;
+  align-items: center;
+  justify-content: center;
+}
+#cientifica > input {
+  width: 33%;
+}
+
+#displayOpBt {
+  display: flex;
+  flex-wrap: wrap;
+  float: left;
+  width: 70%;
+  height: 45px;
+  margin: 0 0 0 4%;
+  align-items: center;
+  justify-content: center;
+}
+#displayOpBt > input {
+  width: 33%;
+}
+#displayOpBt2 {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  height: 215.3px;
+  margin-top: 33px;
+  /* margin: 14px 0 0 0; */
+  /* align-items: center; */
+  /* justify-content: center; */
+}
+#displayOpBt2 > input {
+  width: 33%;
+}
+
+#big {
+  width: 42px;
+  height: 83px;
+  text-align: center;
+  padding: 10px;
+  cursor: pointer;
+}
+#containerNum {
+  width: 100%;
+}
+
+/* .talk {
+  background-color: #FFA07A;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 50px;
+} */
+
+/***************************INICIO FORM********************************/
+
+.form {
+  background-color: #FFDAB9;
+  width: 80%;
+  margin: 0 auto;
+  position: relative;
+
+}
+.form-container {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  background-color: #FFA07A;
+  align-items: center;
+
+}
+
+.form-container input {
+  width: 60%;
+  border: none;
+  background-color:whitesmoke;
+  color:orangered;
+  margin: 2px 0;
+  border-radius: 10px;
+ 
+
+}
+.form-container select {
+  width: 200px;
+  background-color: white;
+  color:orangered;
+  border-radius: 10px;
+}
+input::placeholder {
+  color: orangered;
+}
+
+.modal-fundo-CEP,
+.modal-fundo-Campos {
+  display: none;
+}
+
+.txt-area{
+  background-color: #292929;
+  border-radius: 10px;
+
+}
+
+.btn-form-estilo{
+
+  margin-top: 5px;
+  margin-left: 10px;
+  font-weight: bold;
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+
+}
+
+.btn-form-estilo:hover{
+  /* background: linear-gradient(rgba(0, 0, 0, 1), rgba(201, 78, 15, 1)); */
+  color: orange;
+  background-color: black;
+
+}
+
+
+/****************************ESTILO MODAL***********************************/
+
+#caixaMaior {
+  display: none;
+  width: 500px;
+  height: 250px;
+  background-color: #f56411f6;
+  position: absolute;
+  bottom: 131px;
+  left: 233px;
+  border: solid 1px #7f7f7f;
+  border-radius: 5px;
+  text-align: center;
+}
+
+#faixaPreta {
+  width: 500px;
+  height: 50px;
+  background-color: rgb(10, 10, 10);
+}
+#cabecalhoCaixa {
+  font-size: 30px;
+  text-align: center;
+  color: rgb(215, 250, 247);
+  margin-top: 0;
+  padding-top: 10px;
+}
+
+.buttonClass {
+  font-size: 15px;
+  font-family: Arial;
+  width: 140px;
+  height: 50px;
+  border-width: 1px;
+  color: #fff;
+  border-color: rgba(0, 0, 0, 1);
+  font-weight: bold;
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
+  border-bottom-left-radius: 18px;
+  border-bottom-right-radius: 18px;
+  /*box-shadow: 3px 4px 0px 0px rgba(201, 78, 15, 1);*/
+  text-shadow: 0px 1px 0px rgba(0, 0, 0, 1);
+  background: linear-gradient(rgba(201, 78, 15, 1), rgba(0, 0, 0, 1));
+}
+
+.buttonClass:hover {
+  background: linear-gradient(rgba(0, 0, 0, 1), rgba(201, 78, 15, 1));
+}
+
+/**************************ESTILO FOOTER**********************************/
+
+/* footer {
+  margin-top: 50px;
+  background-color: orangered;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
+.rodape {
+  background-color: orangered;
+  color: black;
+  width: 100%;
+  height: 50px;
+  /*margin-top:1px;*/
+  clear: both;
+  text-align: center;
+}
+.footerRedesSociais {
+  margin-top: 50px;
+  background-color: orangered;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*****************************ESTILO BANNER*********************************/
+
+#banner-container {
+  width: 300px;
+}
+#banner {
+  width: 100%;
+  height: 350px;
+  position: relative;
+  background-size: cover;
+}
+#btnLeft {
+  position: absolute;
+  cursor: pointer;
+  left: 0;
+  bottom: 50%;
+}
+#btnRight {
+  position: absolute;
+  cursor: pointer;
+  right: 0;
+  bottom: 50%;
+}
+
+/*******************************ESTILO OO*****************************/
+
+.container-cadastro {
+  width: 100%;
+  margin: 0 auto;
+  height: 400px;
+  background-color: #f8f8ff;
+  padding-top: 120px;
+}
+
+.cadastro-nomes {
+  width: 100%;
+  text-align: center;
+}
+.cadastro-nomes input {
+  padding: 10px;
+  margin-right: 10px;
+  border-radius: 10px;
+  line-height: 1.5;
+  border: none;
+  outline: none;
+  background-color: #ffdab9;
+}
+#nomePessoa {
+  width: 30%;
+
+  justify-content: center;
+  text-align: center;
+}
+#nomeDog {
+  width: 20%;
+  justify-content: center;
+}
+
+.cadastro-btn {
+  justify-content: flex-end;
+  width: 100%;
+  text-align: center;
+  width: 100%;
+  margin-top: 20px;
+}
+
+button {
+  margin-top: 5px;
+  margin-left: 10px;
+  font-weight: bold;
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}
+button:hover {
+  color: orange;
+  background-color: black;
+}
+
+.conteudo {
+  margin-top: 30px;
+}
+
+table {
+  width: 100%;
+  border: 1px solid saddlebrown;
+}
+
+table th {
+  background-color: #292929;
+  text-align: left;
+  color: orange;
+}
+table td {
+  background-color: #949494;
+  color: white;
+}
+
+table td img {
+  width: 24px;
+}
+
+.rodape {
+  background-color: orangered;
+  color: black;
+  width: 100%;
+  height: 50px;
+  clear: both;
+  text-align: center;
+}
+
+/* **************************media do btn mobile****************** */
+@media (max-width: 600px) {
+  #lista-nav {
+    display: none;
+    width: 100%;
+    position: absolute;
+    top: 75px;
+    background-color: #f67828;
+  }
+  #btnMenu {
+    display: block;
+    padding: 0.5rem 1rem;
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: black;
+    font-size: 1.5rem;
+  }
+  #lista-nav.active {
+    display: block;
+    position: fixed;
+  }
+  .servc {
+    flex-direction: column;
+    margin: 0;
+  }
+  .servc-left {
+    width: 100%;
+  }
+  .servc-calc {
+    flex-direction: column;
+  }
+}
