@@ -1,12 +1,12 @@
-let cpfDigitado = 11144477705
+let entrada = 11144477705
 let parte1
 let parte2
 // $("#cpf").val()
 for (let i = 0; i <= 11; i++) {
   if (i <= 5) {
-    parte1 += cpfDigitado[i]
+    parte1 += entrada[i]
   } else {
-    parte2 += cpfDigitado[i]
+    parte2 += entrada[i]
   }
 }
 console.log(parte1)

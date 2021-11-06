@@ -31,15 +31,16 @@ $("#botaoOk").click(function () {
   $("#caixaMaior").css("display", "none")
 })
 
-function caixaModal(msgAlerta, msg, obj="") {
+function caixaModal(titulo, msg, obj="", cor="") {
   let obj1
   if(obj==""){
     obj1="."
   }else{
     obj1 = " "+"'"+ obj.substr(0, 1).toUpperCase() + obj.substr(1) +"'"+"."
   }
-  $("#caixaMaior").css("display", "block")
-  $("#cabecalhoCaixa").html(msgAlerta)
+  $("#caixaMaior").css({display: "block"})
+  $("#cabecalhoCaixa").html(titulo)
+  $("#cabecalhoCaixa").css({background: cor})
   $("#mensagemCaixa").html(msg + obj1)
 }
 
@@ -58,7 +59,7 @@ function consultaCep() {
   if (cepDigitado.value == "") {
     cepDigitado.style.border = "1px solid red"
   } else {
-    let cepProcurado = cepDigitado.value.replace('-', '')
+    let cepProcurado = cepDigitado.replace('-', '')
     console.log(cepProcurado)
 
     fetch(`http://viacep.com.br/ws/${cepProcurado}/json`)
